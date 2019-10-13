@@ -7,16 +7,14 @@ client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 client.connect((hostname, port))
 
-client.sendall('hola amigos\n');
+client.sendall(b'hola amigos\n')
 
-data = '' 
+data = ''
 while (data != '/exit'):
   try:
     data = raw_input('>> ')
     if (data != '/exit'):
-      response = client.recv(4096);
+      response = client.recv(4096)
       print(response);
   except EOFError:
     break
-
-
